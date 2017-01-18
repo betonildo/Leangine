@@ -6,3 +6,7 @@
 	path = components/Memallocator
 	url = https://github.com/betonildo/Memallocator.git
 	branch = master
+[submodule "components/UnityDefinitions"]
+	path = components/UnityDefinitions
+	url = https://github.com/betonildo/UnityDefinitions.git
+	branch = master
