@@ -1,0 +1,3 @@
+#usually named folders for cmake
+bin/
+build/
