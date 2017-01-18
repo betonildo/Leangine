@@ -1,0 +1,8 @@
+[submodule "components/LinearMath"]
+	path = components/LinearMath
+	url = https://github.com/betonildo/LinearMath.git
+	branch = master
+[submodule "components/Memallocator"]
+	path = components/Memallocator
+	url = https://github.com/betonildo/Memallocator.git
+	branch = master
