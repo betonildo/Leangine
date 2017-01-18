@@ -25,6 +25,7 @@ endif ()
 add_subdirectory(components/LinearMath) # B is a static library (depends on Boost)
 add_subdirectory(components/Memallocator) # C is a shared library (depends on B and external XXX)
 add_subdirectory(components/UnityDefinitions) # A is a shared library (depends on C and B)
+add_subdirectory(components/LTL)
 
 #add_subdirectory(components/Executable) # Executable (depends on A and C)
 

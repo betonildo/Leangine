@@ -10,3 +10,7 @@
 	path = components/UnityDefinitions
 	url = https://github.com/betonildo/UnityDefinitions.git
 	branch = master
+[submodule "components/LTL"]
+	path = components/LTL
+	url = https://github.com/betonildo/LTL.git
+	branch = master
