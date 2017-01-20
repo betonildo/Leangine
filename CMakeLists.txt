@@ -20,10 +20,16 @@ if (WIN32)
   set(CMAKE_SHARED_LIBRARY_PREFIX "")
 endif ()
 
-# When done tweaking common stuff, configure the components (subprojects).
-# NOTE: The order matters! The most independent ones should go first.
-add_subdirectory(components/LinearMath) # B is a static library (depends on Boost)
-add_subdirectory(components/Memallocator) # C is a shared library (depends on B and external XXX)
-add_subdirectory(components/UnityDefinitions) # A is a shared library (depends on C and B)
-add_subdirectory(components/LTL)
+# Doc Definitions:
+# NODEPENDENCY = No dependency
+# TRANSLATIONS_UNITS_OF = Projects that it needs translation units(.cpp's)
+# INCLUDE_UNITS_OF = Projects that it needs includes (.h's)
+# EXPORT_TRANSLATIONS_UNITS = Export it's translations units as ${PROJECT_NAME}_TRANSLATION_UNITS
+# EXPORT_INCLUDES = Exports it's .h's files throughout ${PROJECT_NAME}_INCLUDE_DIRS
+
+# Sub projects including on the main project itself
+add_subdirectory(components/LinearMath) # INCLUDE_UNITS_OF(UnityDefinitions), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
+add_subdirectory(components/Memallocator) # INCLUDE_UNITS_OF(UnityDefinitions), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
+add_subdirectory(components/UnityDefinitions) # NODEPENDENCY, EXPORT_INCLUDES
+add_subdirectory(components/LTL) # INCLUDE_UNITS_OF(Memallocator), TRANSLATIONS_UNITS_OF(Memallocator), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
 add_subdirectory(components/Tests)
