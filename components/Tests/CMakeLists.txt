@@ -8,6 +8,8 @@ include_directories(
     ${UnityDefinitions_INCLUDE_DIRS}
     ${LinearMath_INCLUDE_DIRS})
 
+include_directories("${PROJECT_SOURCE_DIR}/include")
+
 
 set(ALL_SOURCES 
     ${LinearMath_TRANSLATION_UNITS}
