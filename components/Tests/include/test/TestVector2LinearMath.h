@@ -52,5 +52,9 @@ void vector2SumMulDiv() {
 
     ASSERT(u == v, "u and v should be equal");
 
+    u.x = v.x = u.y = v.y = 1;
+
+    ASSERT(u + v == Vector2(2, 2), "u + v should have their components sum as component of the new vector2 formed");
+
     
 }

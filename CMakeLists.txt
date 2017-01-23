@@ -6,7 +6,7 @@ set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 set(CMAKE_DISABLE_SOURCE_CHANGES  ON)
 
 # custom flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 ")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2 -msse -Wall -std=c++11 ")
 
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
   message(SEND_ERROR "In-source builds are not allowed.")
@@ -28,8 +28,8 @@ endif ()
 # EXPORT_INCLUDES = Exports it's .h's files throughout ${PROJECT_NAME}_INCLUDE_DIRS
 
 # Sub projects including on the main project itself
+add_subdirectory(components/UnityDefinitions) # NODEPENDENCY, EXPORT_INCLUDES
 add_subdirectory(components/LinearMath) # INCLUDE_UNITS_OF(UnityDefinitions), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
 add_subdirectory(components/Memallocator) # INCLUDE_UNITS_OF(UnityDefinitions), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
-add_subdirectory(components/UnityDefinitions) # NODEPENDENCY, EXPORT_INCLUDES
 add_subdirectory(components/LTL) # INCLUDE_UNITS_OF(Memallocator), TRANSLATIONS_UNITS_OF(Memallocator), EXPORT_TRANSLATIONS_UNITS, EXPORT_INCLUDES
 add_subdirectory(components/Tests)
