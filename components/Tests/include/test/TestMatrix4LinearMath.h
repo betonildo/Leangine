@@ -1,4 +1,6 @@
 #include <Matrix4.h>
+#include <Definitions.h>
+#include <StackAllocator.h>
 
 void matrix4SSEMultiplication() {
 
@@ -62,4 +64,34 @@ void matrix4SSEMultiplication() {
     std::cout <<  m2 * m1<< "\n";
     std::cout << "\n";
     std::cout <<  m1 * m2<< "\n";
+
+    float m3values[] = {
+        4, 8, 12, 16,
+        8, 16, 24, 32,
+        12, 24, 36, 48,
+        16, 32, 48, 64,
+    };
+
+    Matrix4 m3(m3values);
+
+    std::cout << (m3 == (m1 * m2)) << "\n";
+
+    m3.turnIdentity();
+    std::cout << m3 << "\n";
+
+    m1.turnTransversal();
+    std::cout << m1 << "\n";
+
+    StackAllocator st;
+    st.setStackSize(1024);
+    st.erase();
+
+    Matrix4& m4 = st.allocate<Matrix4>();
+
+    m4[0][0] = 255;
+    m4[0][1] = 255;
+    m4[0][2] = 255;
+    m4[0][3] = 255;
+
+    st.printStack();
 }
